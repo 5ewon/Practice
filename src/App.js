@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-function App() {
+
+const App = () => {
+  const [color, setColor] = useState("white");
+  const ChangeColor = () => color==="red" ? setColor("white"):setColor("red");
+  const Button = styled.button`
+    color:black;
+    background-color:${color};
+    border-radius:10px;
+    font-size:24px;
+  `;
+  const LargeButton = styled(Button)`
+    font-size:40px;
+  `;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Button onClick={ChangeColor}>ing</Button>
+      <LargeButton>iiing</LargeButton>
     </div>
   );
 }
